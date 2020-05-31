@@ -1,0 +1,31 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t,i,n;
+	cin>>t;
+	while(t--)
+	{
+	     cin>>n;
+	     int *a=new int[n];
+	     for(i=0;i<n;i++)
+	     cin>>a[i];
+	     int max1[n],max2[n];
+	     max1[0]=a[0];
+	     max2[n-1]=a[n-1];
+	     for(i=1;i<n;i++)
+	     {
+	          max1[i]=max(max1[i-1],a[i]);
+	          max2[n-1-i]=max(max2[n-i],a[n-1-i]);
+	     }
+	     int sum=0,x;
+	     for(i=0;i<n;i++)
+	     {
+	          x=min(max1[i],max2[i]);
+	          sum+=x-a[i];
+	     }
+	     cout<<sum<<endl;
+	}
+	return 0;
+}
