@@ -1,0 +1,13 @@
+// function to find largest 
+// coprime divisor 
+int cpFact(int x, int y) 
+{ 
+    while (gcd(x, y) != 1) { 
+         int p=gcd(x,y);
+         cout<<x<<" "<<p<<endl;
+        x = x / p; 
+        
+    } 
+    return x; 
+} 
+  
