@@ -1,0 +1,61 @@
+int main() {
+	int i,n;
+	cin>>n;
+	int a[n];
+	for(i=0;i<n;i++)
+	cin>>a[i];
+	int c1,me1,me2;
+	c1=0;
+	me1=INT_MAX;
+	me2=INT_MAX;
+	int c2 =0;
+	for(i=0;i<n;i++)
+	{   
+	      if(a[i]==me1)
+	      c1++;
+	      
+	      else if(a[i]==me2)
+	      {
+	           c2++;
+	      }
+	      else if(c1==0)
+	      {
+	           c1=1;
+	           me1=a[i];
+	      }
+	      else if(c2==0)
+	      {
+	           me2=a[i];
+	      }
+	      else
+	      {
+	           c1--;
+	           c2--;
+	      }
+	}
+	if(c1>0)
+	{
+	     int c=0;
+	for(i=0;i<n;i++)
+	{
+	   if(a[i]==me1)
+	   c++;
+	}
+	if(c>n/3)
+	cout<<me1<<endl;
+	}
+	if(c2>0)
+	{
+	     
+	     int c=0;
+	for(i=0;i<n;i++)
+	{
+	   if(a[i]==me2)
+	   c++;
+	}
+	if(c>n/3)
+	cout<<me2<<endl;
+	}
+
+	return 0;
+}
