@@ -1,0 +1,63 @@
+int main() {
+	int i,j,k,m,n1,n2,n3,mi,ma,p;
+	cin>>n1>>n2>>n3;
+	int a[n1];
+	int b[n2];
+	int c[n3];
+	for(i=0;i<n1;i++)
+	cin>>a[i];
+	for(i=0;i<n2;i++)
+	cin>>b[i];
+	for(i=0;i<n3;i++)
+	cin>>c[i];
+	i=0;
+	j=0;
+	k=0;
+	m=INT_MAX;
+	while(i<n1 && j<n2 && k<n3)
+	{
+	     if(a[i]>=b[j])
+	     {
+	         if(b[j]>=c[k])
+	         {
+	              ma=a[i];
+	              mi=c[k];
+	              p=3;
+	         }
+	         else
+	         {
+	              ma=c[k];
+	              mi=b[j];
+	              p=2;
+	         }
+	           
+	     }
+	     else {
+	          if(a[i]>=c[k])
+	          {
+	               ma=b[j];
+	               mi=c[k];
+	               p=3;
+	          }
+	          else
+	          {
+	               ma=c[k];
+	               mi=a[i];
+	               p=1;
+	          }
+	          
+	         }
+	         
+	    m=min(m,ma-mi);
+	    if(p==1)
+	    i++;
+	    else if(p==2)
+	    j++;
+	    else if(p==3)
+	    k++;
+	    
+     	}
+     	cout<<m;
+	
+	return 0;
+}
