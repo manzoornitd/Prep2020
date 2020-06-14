@@ -1,0 +1,41 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int fact(int n)
+{
+     if(n==1 || n==0)
+     return 1;
+     return n*fact(n-1);
+}
+
+
+int main() {
+	int i,j,n,c,sum=1;
+	string s;
+	cin>>s;
+	n=s.size();
+     int ans;
+	for(i=0;i<n;i++)
+	{
+	     ans=1;
+	     	vector <int> v(26,0);
+	     	c=0;
+	     	for(j=i+1;j<n;j++)
+	     	{
+	     	     if(s[i]>s[j])
+	     	     c++;
+	     	}
+	     	for(j=i;j<n;j++)
+	     	{
+	     	     v[int(s[j])-97]++;
+	     	}
+	     	
+	     	for(j=0;j<26;j++)
+	     	ans=ans*fact(v[j]);// for duplicate char
+	     	
+	     	sum+=c*fact(n-i-1)/ans;
+	}
+	cout<<sum;
+	return 0;
+}
