@@ -1,0 +1,30 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int i,p1,p2,p3,n,c=1,mi;
+	cin>>n;
+	int a[n+1];
+	a[0]=1;
+	p1=0;
+	p2=0;
+	p3=0;
+	
+	while(c<=n)
+	{
+	     mi=min(a[p1]*2,a[p2]*3);
+	     mi=min(mi,a[p3]*5);
+	     a[c++]=mi;
+	     if(mi==a[p1]*2)
+	     p1++;
+	     if(mi==a[p2]*3)
+	     p2++;
+	     if(mi==a[p3]*5)
+	     p3++;
+	    
+	}
+	for(i=1;i<=n;i++)
+	cout<<a[i]<<" ";
+	return 0;
+}
