@@ -15,7 +15,7 @@ int main() {
 	{
 	    
 	     x=k&1;
-	      
+	      if(x==1)
 	     break;
 	     c++;
 	     k=k>>1;
