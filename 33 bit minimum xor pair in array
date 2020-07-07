@@ -1,0 +1,11 @@
+int fun(int a[],int n)
+{
+sort(a,a+n);
+int mi,i;
+mi=INT_MAX;
+for(i=0;i<n-1;i++)
+{
+mi=min(mi,a[i]^a[i+1]);
+}
+return mi;
+}
