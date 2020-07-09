@@ -1,0 +1,23 @@
+int main() {
+int i,n,x,y,c,ma;
+cin>>n;
+x=0;                                 //return lenth if not 0;
+
+ma=0;
+c=1;
+map <int,int> mp;
+mp[0]=1;
+while(n--)
+{
+     cin>>y;
+     x+=y;
+      c++;
+     if(mp[x]>0)
+     ma=max(ma,c-mp[x]);
+     else
+     mp[x];
+    
+}
+cout<<ma;
+	return 0;
+}
