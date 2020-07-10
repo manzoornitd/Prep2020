@@ -1,0 +1,26 @@
+int main() {
+	// your code goes hereint
+	int i,sum,n;
+	cin>>n;
+	int a[n];
+	int b[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+		cin>>b[i];
+	}
+	map <int,int> x;
+	map <int,int> y;
+	sum=0;
+	for(i=0;i<n;i++)
+	{
+		x[a[i]]++;
+		y[b[i]]++;
+	}
+	for(i=0;i<n;i++)
+	{
+		sum+=(x[a[i]]-1) * (y[b[i]]-1);
+	}
+	cout<<sum;
+	return 0;
+}
