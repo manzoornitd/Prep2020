@@ -1,0 +1,83 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int fun(string s1,string s2)
+{
+     map <char,int> m1;
+     map <char,int> m2;
+     int i,n1,n2,j;
+     n1=s1.size();
+     n2=s2.size();
+     for(i=0;i<n2;i++)
+     {
+          m2[s2[i]]++;
+          
+     }
+     map <char,int> temp;
+     temp=m2;
+     int count=0;
+     int pt1,pt2,len;
+     pt1=-1;
+     len=INT_MAX;
+     for(i=0;i<n1;i++)
+     {
+          if(m2[s1[i]]>0)
+          {
+               m2[s1[i]]--;
+               if(pt1==-1)
+               pt1=i;
+              m1[s1[i]]++;
+              count++;
+              if(count==n2)
+              {
+                   pt2=i;
+                   len=pt2-pt1+1;
+                   break;
+              }
+          }
+     }
+
+     int k;
+     for(j=pt2+1;j<n1;j++)
+     {
+          if(temp[s1[j]]>0)
+          {
+               
+              
+               if(s1[pt1]==s1[j])
+               {
+                    
+                    pt1=pt1+1;
+                    k=pt1;
+                    while(1)
+                    {
+                       if(m1[s1[k]]>temp[s1[k]])
+                       {
+                            m1[s1[k]]--;
+                           
+                       }
+                      else if(m1[s1[k]] <=temp[s1[k]] && temp[s1[k]]!=0) 
+                       {
+                            pt1=k;
+                            break;
+                       }
+                       k++;
+                       
+                    }
+                   
+                    len=min(len,j-pt1+1);
+                    m1[s1[j]]--;
+               }
+                m1[s1[j]]++;
+          }
+     }
+     return len;
+}
+
+int main() {
+     string s1,s2;
+     cin>>s1>>s2;
+     cout<<fun(s1,s2);
+	return 0;
+}
