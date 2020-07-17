@@ -1,0 +1,41 @@
+
+void pr(stack <int> st)
+{
+     while(st.size()!=0)                            // 2 answer 
+     {
+          cout<<st.top()<<" ";
+          st.pop();
+     }
+     cout<<endl;
+     return ;
+}
+void fun(int x,stack <int> &st)
+{
+     if(st.size()==0)
+     {
+          st.push(x);
+          return ;
+     }
+     else
+     {
+          int k=st.top();
+          st.pop();
+          fun(x,st);
+          st.push(k);
+     } 
+}
+void fun1(stack <int> &st)
+{
+     if(st.size()==0)
+     {
+          return ;
+          
+     }
+     else
+     {
+          int k=st.top();
+          st.pop();
+          fun1(st);
+          fun(k,st);
+     }
+}
