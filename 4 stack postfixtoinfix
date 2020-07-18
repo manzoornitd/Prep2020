@@ -1,0 +1,38 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int isop(char c)
+{
+   if(c=='*' || c=='/' || c=='+' || c=='-' || c=='%' || c=='^')
+   return 1;
+   else
+   return 0;
+}
+
+string post2in(string s)
+{
+     int i,n;
+     n=s.size();
+     stack<string> st;
+     for(i=0;i<n;i++)
+     {
+          if(isop(s[i])==1)
+          {
+               string a,b;
+               b=st.top();
+               st.pop();
+               a=st.top();
+               st.pop();
+               a= "(" + a + s[i] + b +")";
+               st.push(a);
+          }
+          else
+          {
+               st.push(string(1,s[i]));
+          }
+     }
+     return st.top();
+}
+for prefix to infix 
+start executing from end and do ('b' +op+ 'a');
