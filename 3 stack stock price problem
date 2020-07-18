@@ -1,0 +1,24 @@
+void fun(int a[],int n)
+{
+     int i;
+     stack <int> st;                                         array given ,longest length such that a[i]>=a[j] i>j;
+     st.push(0);
+     int s[n];
+     s[0]=1;
+     for(i=1;i<n;i++)
+     {
+          while(st.size()!=0 && a[i]>=a[st.top()])
+          {
+               st.pop();
+               
+          }
+          if(st.size()==0)
+          s[i]=i+1;
+          else
+          s[i]=i-st.top();
+          st.push(i);
+     }
+     for(i=0;i<n;i++)
+     cout<<s[i]<<" ";
+     return ;
+}
