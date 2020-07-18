@@ -1,0 +1,27 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	queue<int> q;                                     // for all possible binary number of max lenth n
+	int i,n;                                            //take 0,1  in array and do same till length is max,append 0 and 1 to the popped elemnt and push back 
+	int a[4]={1,2,3,4};
+	for(i=0;i<4;i++)
+	q.push(a[i]);                                           x=q.front(); cout<<x; push(x+'0') push(x+'1')
+	cin>>n;
+	int count=0,ans;
+	while(count<n)
+	{
+	     ans=q.front();
+	     q.pop();
+	     for(i=0;i<4;i++)
+	     {
+	          q.push(ans*10+a[i]);
+	     }
+	     count++;
+	}
+	cout<<ans;
+	return 0;
+}
+
+
