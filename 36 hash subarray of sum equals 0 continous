@@ -15,7 +15,7 @@ while(n--)
      if(mp[x]>0)
      ma=max(ma,c-mp[x]);
      else
-     mp[x];
+     mp[x]=c;
     
 }
 cout<<ma;
