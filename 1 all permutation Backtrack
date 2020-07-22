@@ -1,0 +1,17 @@
+
+void fun(string s,int l,int r)
+{
+     if(l==r)
+     {
+          cout<<s<<endl;
+          return ;
+     }
+     for(int i=l;i<=r;i++)
+     {
+          if(!(s[i]==s[l] && l!=i)){          //if clause is to avoide duplicate elemnts 
+          swap(s[l],s[i]);
+          fun(s,l+1,r);
+          swap(s[l],s[i]);}
+     }
+     
+}
