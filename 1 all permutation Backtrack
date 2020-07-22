@@ -1,5 +1,23 @@
 
-void fun(string s,int l,int r)
+void fun(string s,int l,int r ,set <string> &st)
+{
+     if(l==r)
+     {
+          st.insert(s);
+          return ;
+     }
+     for(int i=l;i<=r;i++)
+     {
+               
+          swap(s[l],s[i]);
+          fun(s,l+1,r,st);
+          swap(s[l],s[i]);}
+     }
+     
+}
+
+////
+void fun(string s,int l,int r )                  //for duplicate and non duplicate 
 {
      if(l==r)
      {
@@ -8,10 +26,19 @@ void fun(string s,int l,int r)
      }
      for(int i=l;i<=r;i++)
      {
-          if(!(s[i]==s[l] && l!=i)){          //if clause is to avoide duplicate elemnts 
-          swap(s[l],s[i]);
-          fun(s,l+1,r);
-          swap(s[l],s[i]);}
+       
+           if(s[i]!=s[i-1]  || l==i){
+           swap(s[l],s[i]);
+           fun(s,l+1,r);
+           swap(s[l],s[i]);
+           } 
      }
      
+}
+int main() {
+	string s;
+	cin>>s;
+	sort(s.begin(),s.end());
+	fun(s,0,s.size()-1);
+	return 0;
 }
