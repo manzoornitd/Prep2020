@@ -15,9 +15,12 @@ void fun(vector <int> &a,int n,int sum,int ind,int count,int *max)
               return;
          }
     }
-    fun(a,n,sum,ind+1,count,max);
+    if(*max>count+1)
     fun(a,n,sum-a[ind],ind+1,count+1,max);
+    if(*max>count+1)
     fun(a,n,sum-a[ind],ind,count+1,max);
+    if(*max>count)
+    fun(a,n,sum,ind+1,count,max);
    return ;
 }
 
@@ -34,5 +37,35 @@ int main() {
 	sort(a.begin(), a.end(), greater<int>());
 	fun(a,n,sum,0,0,&max);
 	cout<<max;
+	return 0;
+}
+
+
+int fun(int a[],int n,int sum)
+{
+     if(sum==0)
+     return 0;
+     int ans=INT_MAX;
+     int i,res;
+     for(i=n-1;i>=0;i--)
+     {
+          if(a[i]<=sum)
+          {
+               res=fun(a,n,sum-a[i]);
+               if(res!=INT_MAX && res+1<ans)
+               ans=res+1;
+          }
+     }
+     return ans;
+}
+
+int main() {
+	int i,n,k;
+	cin>>n>>k;
+	int a[n];
+	for(i=0;i<n;i++)
+	cin>>a[i];
+	sort(a,a+n);
+	cout<<fun(a,n,k);
 	return 0;
 }
