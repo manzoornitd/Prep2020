@@ -53,15 +53,4 @@ int fun(int a[],int n,int k,int dp[])
      return ans;
 }
 
-int main() {
-	int i,n,k;
-	cin>>n>>k;
-	int a[n];
-	for(i=0;i<n;i++)
-	cin>>a[i];
-	int dp[k+1];
-	for(i=0;i<=k;i++)
-	dp[i]=-1;
-	cout<<fun(a,n,k,dp);
-	return 0;
-}
+
