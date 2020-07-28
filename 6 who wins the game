@@ -1,0 +1,30 @@
+ two player A and B, there is a array s{s1 s2 ... sn} and k ,in every move player take one elment from array and substract k with it (k-s[i])
+ game goes until k>=min(s);
+ whoever plays the last move is winner .
+ bool fun(int a[],int n,int k)
+{
+     if (k<a[0])
+     return false  ;
+    bool x,y;
+    x= fun(a,n,k-a[0]);
+    x=!x;
+    int i;
+     for(i=1;i<n;i++)
+     {
+          bool y;
+        y=fun(a,n,k-a[i]); 
+        y=!y;
+        x= x || y;
+     }
+     return x;
+}
+
+int main() {
+	int i,n,k;
+	cin>>n>>k;
+	int a[n];
+	for(i=0;i<n;i++)
+	cin>>a[i];
+	cout<<fun(a,n,k);
+	return 0;
+}
