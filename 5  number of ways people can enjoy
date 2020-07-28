@@ -1,0 +1,23 @@
+n is the number of people
+one may stay alone and one may pair with another .no of possible ways
+
+void fun(int n)
+{
+     int a[n+1];
+     int i;
+     a[0]=1;
+     a[1]=1;
+     for(i=2;i<=n;i++)
+     {
+          a[i]= (i-1)*a[i-2] + a[i-1];
+     }
+     cout<<a[n];
+     return ;
+}
+
+int main() {
+	int n;
+	cin>>n;
+	fun(n);
+	return 0;
+}
