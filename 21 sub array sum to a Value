@@ -1,0 +1,28 @@
+void fun( int a[],int n,int sum)
+{
+   bool v[n+1][sum+1];
+   int i,j;
+     for(i=0;i<=n;i++)
+     {
+          v[i][0]=true ;
+     }
+     for(i=1;i<=sum;i++)
+     {
+          v[0][i]=false;
+     }
+     
+     for(i=1;i<=n;i++)
+     {
+          for(j=1;j<=sum;j++)
+          {
+               if(a[i-1]>j)
+          {
+               v[i][j]=v[i-1][j];
+          }
+          else
+          v[i][j]=(v[i-1][j] || v[i-1][j-a[i-1]]);
+          }
+     }
+    
+     cout<<v[n][sum];
+}
