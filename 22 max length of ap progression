@@ -1,0 +1,53 @@
+dp [][] for positive diff and  sp[][] for negetive diff 
+ma is max element ;
+
+void fun(int a[],int n,int ma)
+{
+     
+     int dp[n][ma+1];
+     int sp[n][ma+1];
+     int i,j,k;
+     for(i=0;i<n;i++)
+     {
+          for(j=0;j<=ma;j++)
+          {dp[i][j]=1;
+          sp[i][j]=1;}
+     }
+     for(i=1;i<n;i++)
+     {
+          for(j=0;j<i;j++)
+          {
+               if(a[i]>=a[j] && a[i]-a[j]<=ma)
+               {
+                    k=a[i]-a[j];
+                    dp[i][k]=max(dp[i][k],dp[j][k]+1);
+               }
+               else if(a[j]>a[i] && a[j]-a[i]<=ma)
+               {
+                    k=a[j]-a[i];
+                    sp[i][k]=max(sp[i][k],sp[j][k]+1);
+               }
+               
+          }
+     }
+     int m=0,p;
+     for(i=0;i<=ma;i++)
+     {
+          if(dp[n-1][i]>m)
+          { m=dp[n-1][i];
+           p=i;
+          }
+     }
+     cout<<m<<" "<<p<<endl;
+     m=0;
+     for(i=0;i<=ma;i++)
+     {
+          if(sp[n-1][i]>m)
+          { m=sp[n-1][i];
+            p=i;
+          }
+     }
+     cout<<m<<" -"<<p;
+     return ;
+}
+
