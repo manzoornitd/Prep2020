@@ -1,0 +1,17 @@
+void fun(int n)
+{
+     int dp[n+1],y[n+1],z[n+1];
+     y[1]=1;
+     z[1]=1;
+     dp[1]=2;
+     int i;
+     for(i=2;i<=n;i++)
+     {
+          y[i]=y[i-1]+z[i-1];
+          z[i]=y[i-1];
+          dp[i]=y[i]+z[i];
+          
+     }
+     cout<<dp[n];
+     return ;
+}
